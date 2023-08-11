@@ -1,0 +1,64 @@
+@import "../_variables/variables";
+@import "../_variables/mixins";
+
+.header {
+    margin: 30px 0 40px 0;
+
+    @include _768 {
+        margin: 0 0 30px 0;
+    }
+}
+
+.header-wrapper {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__text {
+        font-family: "Gilory", sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        color: $color1;
+
+        @include _480 {
+            font-size: 16px;
+        }
+    }
+}
+
+.header-nav {
+    display: flex;
+    gap: 35px;
+}
+
+.header-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @include _768 {
+        display: none;
+    }
+
+    &__link {
+        color: $color2;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 124px;
+        height: 48px;
+        background: $color7;
+        border-radius: 10px;
+        color: $color2;
+    }
+}

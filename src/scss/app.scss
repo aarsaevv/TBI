@@ -1,0 +1,114 @@
+@import "./_variables/variables";
+@import "./_variables/mixins";
+
+@import "./index/header";
+@import "./index/banner-main";
+@import "./index/about";
+@import "./index/connection";
+@import "./index/footer";
+
+@import "./authorization/header-blue";
+@import "./authorization/authorization";
+
+@import "./library/library";
+
+@import "./book-card/book-card";
+
+@import "./reader/reader";
+
+@import "./components/pagination";
+@import "./components/reader-buttons";
+@import "./components/reader-range";
+@import "./components/modal";
+@import "./components/popup";
+@import "./components/spinner";
+
+html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+    // overflow-y: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $color2;
+    background: $background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+p {
+    color: $color3;
+}
+
+a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+button {
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    height: 26px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid $color6;
+    background: $white;
+    font-size: 14px;
+    color: $color3;
+    outline: none;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+._container {
+    max-width: 68.75%;
+    margin: 0 auto;
+
+    @include _1600 {
+        max-width: 69.375%;
+    }
+
+    @include _1440 {
+        max-width: 92%;
+    }
+
+    @include _1000 {
+        max-width: 92.187%;
+    }
+
+    @include _768 {
+        max-width: 93.75%;
+    }
+
+    @include _576 {
+        max-width: 91.666%;
+    }
+
+    @include _480 {
+        max-width: 94.444%;
+    }
+}

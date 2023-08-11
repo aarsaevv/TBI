@@ -1,0 +1,169 @@
+@import "../_variables/variables";
+@import "../_variables/mixins";
+
+.header-blue {
+    &.dark {
+        background: #002044;
+    }
+    &.sepia {
+        background: #4B372C;
+    }
+
+    &-nav__button {
+        &.dark {
+            color: $color2;
+            background: $white;
+        }
+
+        &.sepia {
+            color: #4B372C;
+            background: $white;
+        }
+    }
+}
+
+.footer {
+    &.dark {
+        background: #002044;
+    }
+    &.sepia {
+        background: #4B372C;   
+    }
+}
+
+.reader {
+    flex: 1 1 auto;
+    background: $white;
+    padding: 30px 0;
+
+    &__text img {
+        width: 100%;
+    }
+
+    &.dark {
+        background: $color2;
+    }
+    &.sepia {
+        background: #A8A18A;
+    }
+}
+
+.reader-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reader-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include _576 {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    &__back {
+        display: flex;
+        align-items: center;
+        width: 85px;
+        gap: 10px;
+        color: $color1;
+
+        &.dark {
+            filter: invert(58%) sepia(71%) saturate(333%) hue-rotate(172deg) brightness(95%) contrast(87%);
+        }
+
+        &.sepia {
+            filter: invert(72%) sepia(7%) saturate(100%) hue-rotate(9deg) brightness(89%) contrast(87%);
+        }
+    }
+
+    &__book-name {
+        color: $color8;
+        font-size: 16px;
+        line-height: normal;
+
+        &.sepia {
+            color: #4B372C;
+        }
+    }
+}
+
+.reader-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $color6;
+    border-radius: 8px;
+    padding: 10px;
+
+    @include _480 {
+        gap: 10px;
+    }
+
+    &.dark {
+        background: #002044;
+    }
+
+    &.sepia {
+        background: #4B372C;
+    }
+
+    &__rectangle-button {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__square-button {
+        display: flex;
+        gap: 20px;
+
+        @include _480 {
+            gap: 10px;
+        }
+    }
+
+    &__zoom-button {
+        display: flex;
+        gap: 5px;
+
+        @include _480 {
+            gap: 10px;
+        }
+    }
+}
+
+.base-button {
+    &.sepia {
+        background: #A8A18A;
+    }
+}
+
+.base-button.white {
+    &.dark {
+        background: $color2;
+
+        img {
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(108deg) brightness(108%) contrast(101%);
+        }
+
+        span {
+            color: $white;
+        }
+    }
+
+    &.sepia {
+        
+        img {
+            filter: invert(18%) sepia(100%) saturate(319%) hue-rotate(338deg) brightness(50%) contrast(88%);
+        }
+
+        span {
+            filter: invert(18%) sepia(100%) saturate(319%) hue-rotate(338deg) brightness(50%) contrast(88%);
+        }
+    }
+}
