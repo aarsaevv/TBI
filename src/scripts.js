@@ -1,70 +1,45 @@
-// Получаем элементы кнопки, модального окна и кнопки закрытия
-const modalContent = document.getElementById("modalContent")
-const openModalContent = document.getElementById("openModalContent")
-const modalNotes = document.getElementById("modalNotes")
-const openModalNotes = document.getElementById("openModalNotes")
-const modalAddNote = document.getElementById("modalAddNote")
-const openModalAddNote = document.getElementById("openModalAddNote")
-const modalLoading = document.getElementById("modalLoading")
-const openModalLoading = document.getElementById("openModalLoading")
-const modalDictionary = document.getElementById("modalDictionary")
-const openModalDictionary = document.getElementById("openModalDictionary")
+// Получаем элементы-кнопки, модальные окна и кнопки закрытия
+const modalWindows = document.querySelectorAll('#modalContent, #modalNotes, #modalAddNote');
+// #modalDictionary
+const openModalButtons = document.querySelectorAll('#openModalContent, #openModalNotes, #openModalAddNote');
+// #openModalDictionary
+const modalLoading = document.querySelector('#modalLoading')
 const closeButtons = document.querySelectorAll(".modal-heading__close")
 
-// При нажатии на кнопки модалок, отобразить модальное окно
-if (openModalContent) {
-	openModalContent.onclick = function () {
-		modalContent.style.display = "block"
-		document.body.style.overflow = "hidden"
+// При нажатии на элементы-кнопки, отобразить модальное окно
+for (let i = 0; i < modalWindows.length; i++) {
+	if(openModalButtons[i]) {
+		openModalButtons[i].addEventListener('click', () => {
+			modalWindows[i].classList.remove("modal--hidden")
+			document.body.style.overflow = "hidden"
+		})
 	}
 }
-if (openModalNotes) {
-	openModalNotes.onclick = function () {
-		modalNotes.style.display = "block"
-		document.body.style.overflow = "hidden"
-	}
-}
-if (openModalAddNote) {
-	openModalAddNote.onclick = function () {
-		modalAddNote.style.display = "block"
-		document.body.style.overflow = "hidden"
-	}
-}
-/* if (openModalDictionary) {
-	openModalDictionary.onclick = function () {
-		modalDictionary.style.display = "block"
-		document.body.style.overflow = "hidden"
-	}
-} */
 
+// Мок модального окна загрузки
 if (modalLoading) {
-	modalLoading.style.display = "block"
-	setTimeout(function () {
-		modalLoading.style.display = "none"
+	modalLoading.classList.remove("modal--hidden")
+	setTimeout(() => {
+		modalLoading.classList.add("modal--hidden")
 	}, 3000)
 }
 
 // При нажатии на кнопки закрытия, скрыть модальное окно
 for (let closeButton of closeButtons) {
 	closeButton.onclick = function () {
-		modalContent.style.display = "none"
-		modalNotes.style.display = "none"
-		modalAddNote.style.display = "none"
-		modalDictionary.style.display = "none"
+		modalContent.classList.add("modal--hidden")
+		modalNotes.classList.add("modal--hidden")
+		modalAddNote.classList.add("modal--hidden")
+		modalDictionary.classList.add("modal--hidden")
 	}
 }
 
 const navBurger = document.querySelector(".burger-menu")
-const burgerButton = document.querySelectorAll(
-	".header-blue-nav__burger-button",
-)
+const burgerButton = document.querySelectorAll(".header-nav__burger-button")
 let visibilityFlag = false
 
 for (let button of burgerButton) {
 	const navBurger = document.querySelector(".burger-menu")
-	const burgerButton = document.querySelectorAll(
-		".header-blue-nav__burger-button",
-	)
 	button.onclick = function () {
 		visibilityFlag = !visibilityFlag
 		if (visibilityFlag) {
@@ -152,17 +127,20 @@ popupButton.onclick = function () {
 
 const changeThemeButton = document.querySelectorAll(".base-button.white")
 let themeStatus = "light"
-changeThemeButton[1].onclick = function () {
+changeThemeButton[1].addEventListener('click', () => {
 	const affectedElements = document.querySelectorAll(
-		".header-blue, .header-blue-nav__button, .reader, .reader-navigation__back, .reader-navigation__book-name, .reader-control, .base-button.white, .base-button, .footer",
+		".header--blue, .header--blue-nav__button, .reader, .reader-navigation__back, .reader-navigation__book-name, .reader-control, .base-button.white, .base-button, .footer",
 	)
+
+	for (let el of affectedElements) {
+		el.style.transition = "all 600ms"
+	}
 
 	if (themeStatus == "light") {
 		themeStatus = "dark"
 		console.log(themeStatus)
 		changeThemeButton[1].children[0].src = "../src/img/icons/moon.svg"
 		for (let el of affectedElements) {
-			el.style.transition = "all 600ms"
 			el.classList.add("dark")
 		}
 	} else if (themeStatus == "dark") {
@@ -170,7 +148,6 @@ changeThemeButton[1].onclick = function () {
 		console.log(themeStatus)
 		changeThemeButton[1].children[0].src = "../src/img/icons/sepia.svg"
 		for (let el of affectedElements) {
-			el.style.transition = "all 600ms"
 			el.classList.remove("dark")
 			el.classList.add("sepia")
 		}
@@ -179,8 +156,7 @@ changeThemeButton[1].onclick = function () {
 		console.log(themeStatus)
 		changeThemeButton[1].children[0].src = "../src/img/icons/sun.svg"
 		for (let el of affectedElements) {
-			el.style.transition = "all 600ms"
 			el.classList.remove("sepia")
 		}
 	}
-}
+})

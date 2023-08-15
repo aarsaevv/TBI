@@ -7,7 +7,6 @@
 @import "./index/connection";
 @import "./index/footer";
 
-@import "./authorization/header-blue";
 @import "./authorization/authorization";
 
 @import "./library/library";
@@ -15,6 +14,12 @@
 @import "./book-card/book-card";
 
 @import "./reader/reader";
+
+@import "./landing-page/header-landing";
+@import "./landing-page/banner-landing";
+@import "./landing-page/our-services";
+@import "./landing-page/about-landing";
+@import "./landing-page/support";
 
 @import "./components/pagination";
 @import "./components/reader-buttons";
@@ -111,4 +116,12 @@ input {
     @include _480 {
         max-width: 94.444%;
     }
+}
+
+.landing-page {
+    background: $color1;
+}
+
+.modal--hidden {
+    display: none;
 }
