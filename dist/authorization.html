@@ -114,13 +114,19 @@
                             <img src="../src/img/icons/cross.svg" alt="">
                         </a>
                     </div>
-                    <form class="authorization__form authorization-form" action="">
+                    <form class="authorization__form authorization-form" action="" novalidate>
                         <div class="authorization-form__inputs authorization-form-inputs">
                             <input id="email" class="authorization-form-inputs__input" type="text" required>
                             <label for="email" class="authorization-form-inputs__placeholder">E-mail</label>
+                            <span class="authorization-form-inputs__validation">
+                                Это поле обязательно для заполнения
+                            </span>
                             <div class="authorization-form-inputs__block">
                                 <input id="password" class="authorization-form-inputs__input" type="password" required>
                                 <label for="password" class="authorization-form-inputs__placeholder">Құпиясөз</label>
+                                <span class="authorization-form-inputs__validation">
+                                    Это поле обязательно для заполнения
+                                </span>
                                 <button class="authorization-form-inputs__button">
                                     <img src="../src/img/icons/eye.svg" alt="">
                                 </button>
@@ -129,7 +135,7 @@
                                 </a>
                             </div>
                         </div>
-                        <button class="authorization-form__button">
+                        <button type="submit" class="authorization-form__button">
                             Кiру
                         </button>
                         <div class="authorization-form__block authorization-form-block">

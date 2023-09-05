@@ -124,6 +124,18 @@
     }
   }
 
+  &__validation {
+    display: none;
+    position: absolute;
+    top: 44px;
+    font-size: 12px;
+    color: #EB5757;
+
+    &.validation--active {
+      display: block;
+    }
+  }
+
   &__block {
     position: relative;
     display: flex;
