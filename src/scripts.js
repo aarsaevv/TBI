@@ -186,25 +186,25 @@ if (showPasswordButtons) {
 	}
 }
 
-const loginButton = document.querySelector('.authorization-form__button');
+const loginButton = document.querySelector(".authorization-form__button")
 
-const inputs = document.querySelectorAll('.authorization-form-inputs__input');
+const inputs = document.querySelectorAll(".authorization-form-inputs__input")
 
 if (loginButton) {
-	loginButton.addEventListener('click', (e) => {
-		e.preventDefault();
+	loginButton.addEventListener("click", (e) => {
+		e.preventDefault()
 		if (inputs) {
 			for (let input of inputs) {
 				if (!input.value.length) {
-					input.style.border = '1px solid #EB5757';
+					input.style.border = "1px solid #EB5757"
 
 					const span = input.nextElementSibling.nextElementSibling
-					span.classList.add('validation--active')
+					span.classList.add("validation--active")
 
-					input.addEventListener('focus', () => {
-						input.style.border = 'none';
-						
-						span.classList.remove('validation--active')
+					input.addEventListener("focus", () => {
+						input.style.border = "1px solid transparent"
+
+						span.classList.remove("validation--active")
 					})
 				}
 			}
